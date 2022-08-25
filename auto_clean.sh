@@ -16,7 +16,7 @@ NODE_NAME="mynode-testnet"          # Node name
 FINDER="0"                          # delete local snapsot and download new with snapshot-finder (1 = YES; 0 = NO, use local snapshot)
 LEDGER="/root/solana/ledger"        # path to ledger (default: /root/solana/ledger)
 SNAPSHOTS="/root/solana/snapshots"  # path to snapshots (default: /root/solana/ledger)
-FREE_SPACE="100"                    # enter your value in MB for restarted solana and download snapshot
+FREE_SPACE="100"                    # enter your value in MB for cleaning ledger and restart solana
 
 
 ICON=`echo -e '\U0001F514'`
