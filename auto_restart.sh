@@ -18,6 +18,7 @@ FINDER="1"                          # delete local snapsot and download new with
 LEDGER="/root/solana/ledger"        # path to ledger (default: /root/solana/ledger)
 SNAPSHOTS="/root/solana/snapshots"  # path to snapshots (default: /root/solana/ledger)
 BEHIND="2500"                       # enter the value of the slots, if the node is behind, it will restart
+RPC_URL="https://api.testnet.solana.com"
 
 ICON=`echo -e '\U0001F514'`
 PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
@@ -62,7 +63,7 @@ if [ "$FINDER" = "1" ];then
   python3 -m venv venv
   source ./venv/bin/activate
   pip3 install -r requirements.txt
-  python3 snapshot-finder.py --snapshot_path ${SNAPSHOTS} -r https://api.testnet.solana.com
+  python3 snapshot-finder.py --snapshot_path ${SNAPSHOTS} -r ${RPC_URL}
 else
  rm -fr "${LEDGER}/!(*.tar.zst)"
  rm -fr "${SNAPSHOTS}/!(*.tar.zst)"
