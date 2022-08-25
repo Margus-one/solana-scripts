@@ -47,11 +47,10 @@ catchup_info() {
 
 AVAIL=$(df --output=avail / | tail -n 1)
 VAR=$(( $FREE_SPACE * 1024 ))
-if [ "$AVAIL" -lt "$VAR" ]
-then
-	systemctl stop solana
+if [ "$AVAIL" -lt "$VAR" ];then
+systemctl stop solana
 if [ "$FINDER" = "1" ];then
-	rm -fr ${LEDGER}/*
+rm -fr ${LEDGER}/*
   rm -fr ${SNAPSHOTS}/*
   cd /root/solana
   rm -fr solana-snapshot-finder
@@ -67,9 +66,9 @@ else
  rm -fr "${LEDGER}/!(*.tar.zst)"
  rm -fr "${SNAPSHOTS}/!(*.tar.zst)"
 fi 
-	systemctl start solana
+systemctl start solana
   send_message "${ICON} Solana alert! ${NODE_NAME}" "Solana service has been restarted!"
   send_message "${ICON} Solana alert! ${NODE_NAME}" "$(catchup_info)"
 else
-	echo "Available $AVAIL Kb, not cleaning..."
+echo "Available $AVAIL Kb, not cleaning..."
 fi
